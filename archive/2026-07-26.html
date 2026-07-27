@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鑺峰惈鏃ユ姤鐪嬫澘 路 2026-07-26</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    min-height: 100vh;
+    color: #e0e0e0;
+    padding: 24px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #8888aa;
+  }
+  .header .update-time {
+    font-size: 12px;
+    color: #666688;
+    margin-top: 4px;
+  }
+  .header .back-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #667eea;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    background: rgba(102, 126, 234, 0.15);
+    transition: background 0.2s;
+  }
+  .header .back-link:hover {
+    background: rgba(102, 126, 234, 0.3);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+  }
+  .card.full-width {
+    grid-column: 1 / -1;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .icon {
+    font-size: 20px;
+  }
+  .card-title .badge {
+    font-size: 11px;
+    background: rgba(102, 126, 234, 0.3);
+    color: #a8b4ff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: auto;
+  }
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .metric-item {
+    text-align: center;
+    padding: 16px 8px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .metric-value {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+  }
+  .metric-value.green {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .metric-value.orange {
+    background: linear-gradient(135deg, #f2994a, #f2c94c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .metric-value.blue {
+    background: linear-gradient(135deg, #667eea, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .metric-label {
+    font-size: 12px;
+    color: #8888aa;
+    margin-top: 6px;
+  }
+  .material-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .material-table th {
+    text-align: left;
+    padding: 10px 12px;
+    color: #8888aa;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 12px;
+  }
+  .material-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .material-table tr:hover td {
+    background: rgba(255,255,255,0.03);
+  }
+  .material-name {
+    max-width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .roi-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .roi-high { background: rgba(56, 239, 125, 0.15); color: #38ef7d; }
+  .roi-mid { background: rgba(242, 201, 76, 0.15); color: #f2c94c; }
+  .roi-low { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
+  .roi-zero { background: rgba(136, 136, 170, 0.15); color: #8888aa; }
+  .schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+  }
+  .schedule-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: #a8b4ff;
+    min-width: 100px;
+  }
+  .schedule-name {
+    font-size: 14px;
+    flex: 1;
+  }
+  .schedule-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(102, 126, 234, 0.2);
+    color: #a8b4ff;
+  }
+  .competitor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .competitor-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border-left: 2px solid rgba(242, 201, 76, 0.4);
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+  .competitor-item:hover {
+    background: rgba(255,255,255,0.06);
+  }
+  .competitor-rank {
+    font-size: 12px;
+    font-weight: 700;
+    color: #f2c94c;
+    min-width: 20px;
+  }
+  .competitor-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .competitor-link {
+    font-size: 11px;
+    color: #667eea;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(102, 126, 234, 0.15);
+    transition: background 0.2s;
+  }
+  .competitor-link:hover {
+    background: rgba(102, 126, 234, 0.3);
+  }
+  .ai-tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .ai-tool-item {
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border-left: 2px solid rgba(56, 239, 125, 0.4);
+  }
+  .ai-tool-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .ai-tool-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #38ef7d;
+  }
+  .ai-tool-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 6px;
+    background: rgba(56, 239, 125, 0.15);
+    color: #38ef7d;
+  }
+  .ai-tool-desc {
+    font-size: 12px;
+    color: #aaaacc;
+    line-height: 1.5;
+  }
+  .ai-tool-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: #667eea;
+    text-decoration: none;
+  }
+  .ai-tool-link:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>馃搳 鑺峰惈鏃ユ姤鐪嬫澘</h1>
+    <div class="subtitle">WIS瀹樻柟鏃楄埌搴椾紭閫?路 宸ㄩ噺鍗冨窛</div>
+    <div class="update-time">鏁版嵁鏃ユ湡锛?026-07-26 路 鐢熸垚鏃堕棿锛?026-07-27 14:00</div>
+    <a href="../index.html" class="back-link">鈫?杩斿洖棣栭〉</a>
+  </div>
+
+  <div class="grid">
+    <!-- 鏄ㄦ棩鏁版嵁姒傝 -->
+    <div class="card full-width">
+      <div class="card-title">
+        <span class="icon">馃搱</span>
+        鏄ㄦ棩绱犳潗鏁版嵁锛?7-26锛?        <span class="badge">鑺峰惈涓撳睘</span>
+      </div>
+      <div class="metrics">
+        <div class="metric-item">
+          <div class="metric-value blue">112</div>
+          <div class="metric-label">绱犳潗鎬绘暟</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value blue">0</div>
+          <div class="metric-label">鏄ㄦ棩涓婁紶</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">571.10</div>
+          <div class="metric-label">鏁翠綋娑堣€楋紙鍏冿級</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value green">1,073.00</div>
+          <div class="metric-label">鏁翠綋鎴愪氦閲戦锛堝厓锛?/div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value orange">1.88</div>
+          <div class="metric-label">鏁翠綋鏀粯ROI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP绱犳潗 -->
+    <div class="card full-width">
+      <div class="card-title">
+        <span class="icon">馃幀</span>
+        TOP绱犳潗琛ㄧ幇
+        <span class="badge">鎸夋秷鑰楁帓搴?/span>
+      </div>
+      <table class="material-table">
+        <thead>
+          <tr>
+            <th>绱犳潗鍚嶇О</th>
+            <th>娑堣€楋紙鍏冿級</th>
+            <th>鎴愪氦閲戦锛堝厓锛?/th>
+            <th>ROI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="material-name">0715-涔?鏃?鑺峰惈.mp4</td>
+            <td>185.54</td>
+            <td>396.00</td>
+            <td><span class="roi-badge roi-high">2.13</span></td>
+          </tr>
+          <tr>
+            <td class="material-name">0725-涔旀嫆缁濅竴鎶楾-鑺峰惈.mp4</td>
+            <td>93.03</td>
+            <td>310.00</td>
+            <td><span class="roi-badge roi-high">3.33</span></td>
+          </tr>
+          <tr>
+            <td class="material-name">涓€閿慨澶峗0722-姣涘瓟2鑺峰惈绉嶈崏-闃垮熀鏅?mp4</td>
+            <td>48.87</td>
+            <td>0.00</td>
+            <td><span class="roi-badge roi-zero">0.00</span></td>
+          </tr>
+          <tr>
+            <td class="material-name">0723-浜旇姳鑲?濂借繍-鑺峰惈.mp4</td>
+            <td>48.55</td>
+            <td>0.00</td>
+            <td><span class="roi-badge roi-zero">0.00</span></td>
+          </tr>
+          <tr>
+            <td class="material-name">0722-qhl鎶涢捇鈾?鑺峰惈.mp4</td>
+            <td>35.32</td>
+            <td>0.00</td>
+            <td><span class="roi-badge roi-zero">0.00</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 浠婃棩鏃ョ▼ -->
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">馃搮</span>
+        浠婃棩鏃ョ▼锛?7-27锛?      </div>
+      <div class="schedule-list">
+        <div class="schedule-item">
+          <span class="schedule-time">09:30-10:00</span>
+          <span class="schedule-name">钀ラ攢涓績B鏃╀細</span>
+          <span class="schedule-tag">瑙嗛浼氳</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">09:30-10:00</span>
+          <span class="schedule-name">AI钀ラ攢涓績鏃╀細</span>
+          <span class="schedule-tag">瑙嗛浼氳</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">10:00-10:30</span>
+          <span class="schedule-name">鐩爣鍚屾浼氳锛堢瓥鍒扐锛?/span>
+          <span class="schedule-tag">瀛熷瓙-602</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">17:00-17:30</span>
+          <span class="schedule-name">AI澶曚細</span>
+          <span class="schedule-tag">瑙嗛浼氳</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">18:30-21:00</span>
+          <span class="schedule-name">銆婂搧鐗岃惀閿€涓庝紶鎾€嬪攼濞熸€荤洃鎺堣</span>
+          <span class="schedule-tag">馃搷1107</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 浠峰€煎彂鐜?-->
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">馃挕</span>
+        浠峰€煎彂鐜?      </div>
+
+      <!-- 绔炲鏈夋晥绱犳潗 -->
+      <div style="margin-bottom: 20px;">
+        <h4 style="font-size: 14px; color: #f2c94c; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+          馃敟 绔炲鏈夋晥绱犳潗
+          <a href="https://jqx28l0j4lx.feishu.cn/wiki/VV0swNIgMiTKVQkM2T8crzqnnCb" target="_blank" style="font-size: 11px; color: #667eea; text-decoration: none; margin-left: auto;">鏌ョ湅瀹屾暣琛ㄦ牸 鈫?/a>
+        </h4>
+        <div class="competitor-list">
+          <div class="competitor-item">
+            <span class="competitor-rank">1</span>
+            <span class="competitor-title">琛屼笟璺戦噺绱犳潗鍙傝€冿紙07-20鏇存柊锛?/span>
+            <a href="https://jqx28l0j4lx.feishu.cn/wiki/VV0swNIgMiTKVQkM2T8crzqnnCb" target="_blank" class="competitor-link">鏌ョ湅</a>
+          </div>
+          <div class="competitor-item">
+            <span class="competitor-rank">2</span>
+            <span class="competitor-title">琛屼笟璺戦噺绱犳潗鍙傝€冿紙07-13鏇存柊锛?/span>
+            <a href="https://jqx28l0j4lx.feishu.cn/wiki/VV0swNIgMiTKVQkM2T8crzqnnCb" target="_blank" class="competitor-link">鏌ョ湅</a>
+          </div>
+          <div class="competitor-item">
+            <span class="competitor-rank">3</span>
+            <span class="competitor-title">琛屼笟璺戦噺绱犳潗鍙傝€冿紙07-06鏇存柊锛?/span>
+            <a href="https://jqx28l0j4lx.feishu.cn/wiki/VV0swNIgMiTKVQkM2T8crzqnnCb" target="_blank" class="competitor-link">鏌ョ湅</a>
+          </div>
+          <div class="competitor-item">
+            <span class="competitor-rank">4</span>
+            <span class="competitor-title">琛屼笟璺戦噺绱犳潗鍙傝€冿紙06-29鏇存柊锛?/span>
+            <a href="https://jqx28l0j4lx.feishu.cn/wiki/VV0swNIgMiTKVQkM2T8crzqnnCb" target="_blank" class="competitor-link">鏌ョ湅</a>
+          </div>
+          <div class="competitor-item">
+            <span class="competitor-rank">5</span>
+            <span class="competitor-title">琛屼笟璺戦噺绱犳潗鍙傝€冿紙06-22鏇存柊锛?/span>
+            <a href="https://jqx28l0j4lx.feishu.cn/wiki/VV0swNIgMiTKVQkM2T8crzqnnCb" target="_blank" class="competitor-link">鏌ョ湅</a>
+          </div>
+        </div>
+        <div style="font-size: 11px; color: #666688; margin-top: 8px; text-align: center;">
+          鏁版嵁鏉ユ簮锛氬崈宸濈洿鎾紩娴佲€斺€旇涓氳窇閲忕礌鏉愬弬鑰?for WIS
+        </div>
+      </div>
+
+      <!-- AI宸ュ叿鍔ㄦ€?-->
+      <div>
+        <h4 style="font-size: 14px; color: #38ef7d; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+          馃 AI宸ュ叿鍔ㄦ€?        </h4>
+        <div class="ai-tools-grid">
+          <div class="ai-tool-item">
+            <div class="ai-tool-header">
+              <span class="ai-tool-name">ChatGPT Agent</span>
+              <span class="ai-tool-tag">7鏈?7鏃?/span>
+            </div>
+            <div class="ai-tool-desc">
+              OpenAI鍙戝竷ChatGPT Agent锛屾暣鍚圤perator銆丏eep Research鍜孋hatGPT涓夊ぇ鏍稿績鎶€鏈紝鍙嫭绔嬪畬鎴愬鏉備换鍔″鏁版嵁鍒嗘瀽銆丳PT鐢熸垚銆佽绋嬭鍒掔瓑銆?            </div>
+            <a href="https://chat.openai.com/" target="_blank" class="ai-tool-link">璁块棶瀹樼綉 鈫?/a>
+          </div>
+          <div class="ai-tool-item">
+            <div class="ai-tool-header">
+              <span class="ai-tool-name">Lovart</span>
+              <span class="ai-tool-tag">7鏈?8鏃?/span>
+            </div>
+            <div class="ai-tool-desc">
+              鍏ㄧ悆棣栦釜璁捐绫籄I Agent锛岀敱鑵捐娣峰厓澶фā鍨嬫敮鎸侊紝鑱氱劍3D鍐呭鐢熸垚銆佽瑙夎璁°€佺┖闂存瀯鍥剧瓑鍒涙剰璁捐棰嗗煙銆?            </div>
+            <a href="https://lovart.ai/" target="_blank" class="ai-tool-link">璁块棶瀹樼綉 鈫?/a>
+          </div>
+          <div class="ai-tool-item">
+            <div class="ai-tool-header">
+              <span class="ai-tool-name">鍙伒 AI</span>
+              <span class="ai-tool-tag">瑙嗛鐢熸垚</span>
+            </div>
+            <div class="ai-tool-desc">
+              蹇墜鏃椾笅AI瑙嗛鐢熸垚宸ュ叿锛屾敮鎸佹枃鐢熻棰戙€佸浘鐢熻棰戙€傛渶鏂扮増鏈敮鎸佹洿楂樿川閲忕殑瑙嗛鐢熸垚鍜屾洿闀跨殑鏃堕暱銆?            </div>
+            <a href="https://klingai.kuaishou.com/" target="_blank" class="ai-tool-link">璁块棶瀹樼綉 鈫?/a>
+          </div>
+          <div class="ai-tool-item">
+            <div class="ai-tool-header">
+              <span class="ai-tool-name">LibTV</span>
+              <span class="ai-tool-tag">AI瑙嗛</span>
+            </div>
+            <div class="ai-tool-desc">
+              AI瑙嗛鍒涗綔骞冲彴锛屾彁渚涘绉嶈棰戠敓鎴愬拰缂栬緫鍔熻兘锛岄€傚悎鐭棰戝垱浣滆€呬娇鐢ㄣ€?            </div>
+            <a href="https://libtv.ai/" target="_blank" class="ai-tool-link">璁块棶瀹樼綉 鈫?/a>
+          </div>
+        </div>
+        <div style="font-size: 11px; color: #666688; margin-top: 12px; text-align: center;">
+          姣忔棩鑷姩鏇存柊 路 鍏虫敞鏈€鏂癆I宸ュ叿鍔ㄦ€?        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
