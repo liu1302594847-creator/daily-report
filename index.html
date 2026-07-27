@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>鑺峰惈鏃ユ姤鐪嬫澘</title>
+<title>芷含日报看板</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -22,7 +22,7 @@
     padding: 0 32px;
   }
 
-  /* ===== 椤堕儴 ===== */
+  /* ===== 顶部 ===== */
   .topbar {
     display: flex;
     align-items: flex-end;
@@ -70,7 +70,7 @@
     color: #aaa;
   }
 
-  /* ===== 缁熻鍗＄墖琛?===== */
+  /* ===== 统计卡片行 ===== */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -126,7 +126,7 @@
   .stat-label { font-size: 11px; color: #999; margin-bottom: 4px; }
   .stat-value { font-size: 22px; font-weight: 700; color: #1a1a2e; }
 
-  /* ===== 涓汉淇℃伅鏉?===== */
+  /* ===== 个人信息条 ===== */
   .profile-bar {
     display: flex;
     align-items: center;
@@ -176,7 +176,7 @@
     color: #667eea;
   }
 
-  /* ===== 闈㈡澘 ===== */
+  /* ===== 面板 ===== */
   .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -192,7 +192,7 @@
   }
   .panel.full { grid-column: 1 / -1; }
   .panel-body { padding: 24px; }
-  /* 闈㈡澘搴曢儴瑁呴グ鏉?*/
+  /* 面板底部装饰条 */
   .panel-deco {
     height: 4px;
     width: 100%;
@@ -201,7 +201,7 @@
   .panel-deco.blue { background: linear-gradient(90deg, #4facfe, #00f2fe, #43e97b); }
   .panel-deco.orange { background: linear-gradient(90deg, #f5a623, #f7c948, #fa709a); }
   .panel-deco.green { background: linear-gradient(90deg, #43e97b, #38f9d7, #4facfe); }
-  /* 闈㈡澘椤堕儴娓愬彉鑳屾櫙 */
+  /* 面板顶部渐变背景 */
   .panel-header {
     display: flex;
     align-items: center;
@@ -247,7 +247,7 @@
   .panel-tag.orange { background: #fff5e0; color: #f5a623; }
   .panel-tag.green { background: #e0ffe8; color: #2d8a56; }
 
-  /* ===== 绱犳潗琛ㄦ牸 ===== */
+  /* ===== 素材表格 ===== */
   .table-wrapper {
     background: linear-gradient(135deg, #fafafe 0%, #f5f3ff 50%, #fafafe 100%);
     border-radius: 12px;
@@ -282,7 +282,7 @@
   .roi-mid { background: linear-gradient(135deg, #fff8e6, #ffe8b8); color: #b8860b; }
   .roi-zero { background: linear-gradient(135deg, #f5f5f5, #eee); color: #999; }
 
-  /* ===== 鏃ョ▼ ===== */
+  /* ===== 日程 ===== */
   .schedule-list { display: flex; flex-direction: column; gap: 8px; }
   .schedule-item {
     display: flex; align-items: center; gap: 12px;
@@ -294,7 +294,7 @@
   .schedule-name { font-size: 13px; flex: 1; color: #333; }
   .schedule-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; background: #e8e8ff; color: #667eea; }
 
-  /* ===== 浠峰€煎彂鐜板乏鍙虫爮 ===== */
+  /* ===== 价值发现左右栏 ===== */
   .value-discover {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -345,7 +345,7 @@
   .ai-desc { font-size: 11px; color: #777; line-height: 1.5; }
   .ai-link { font-size: 10px; color: #667eea; text-decoration: none; display: inline-block; margin-top: 4px; }
 
-  /* ===== 鍘嗗彶鐪嬫澘 ===== */
+  /* ===== 历史看板 ===== */
   .archive-section { margin-top: 8px; margin-bottom: 40px; }
   .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
   .archive-card {
@@ -378,89 +378,89 @@
 </head>
 <body>
   <div class="container">
-    <!-- 椤堕儴 -->
+    <!-- 顶部 -->
     <div class="topbar">
       <div class="topbar-left">
-        <h1>鑺峰惈鏃ユ姤鐪嬫澘</h1>
-        <div class="subtitle">WIS瀹樻柟鏃楄埌搴椾紭閫?路 宸ㄩ噺鍗冨窛 路 姣忔棩 8:30 鑷姩鏇存柊</div>
+        <h1>芷含日报看板</h1>
+        <div class="subtitle">WIS官方旗舰店优选 · 巨量千川 · 每日 8:30 自动更新</div>
       </div>
       <div class="topbar-right">
-        <span class="update-dot">鏁版嵁鏃ユ湡 07-26</span>
-        <span class="date-badge">07-27 鍛ㄤ竴</span>
+        <span class="update-dot">数据日期 07-26</span>
+        <span class="date-badge">07-27 周一</span>
       </div>
     </div>
 
-    <!-- 涓汉淇℃伅 -->
+    <!-- 个人信息 -->
     <div class="profile-bar">
       <div class="profile-avatar">
-        <img src="avatar.png" alt="鍒樿姺鍚?>
+        <img src="avatar.png" alt="刘芷含">
       </div>
       <div class="profile-info">
-        <div class="profile-name">鍒樿姺鍚?/div>
-        <div class="profile-title">鍝佺墝钀ラ攢閮?路 AI钀ラ攢涓績 路 AI鍒涙剰缁忕悊</div>
+        <div class="profile-name">刘芷含</div>
+        <div class="profile-title">品牌营销部 · AI营销中心 · AI创意经理</div>
       </div>
-      <span class="profile-badge">馃懁 鎴戠殑鐪嬫澘</span>
+      <span class="profile-badge">👤 我的看板</span>
     </div>
 
-    <!-- 缁熻鍗＄墖 -->
+    <!-- 统计卡片 -->
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-icon">馃幀</div>
+        <div class="stat-icon">🎬</div>
         <div class="stat-info">
-          <div class="stat-label">绱犳潗鎬绘暟</div>
+          <div class="stat-label">素材总数</div>
           <div class="stat-value">112</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">馃摛</div>
+        <div class="stat-icon">📤</div>
         <div class="stat-info">
-          <div class="stat-label">鏄ㄦ棩涓婁紶</div>
+          <div class="stat-label">昨日上传</div>
           <div class="stat-value">0</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">馃挵</div>
+        <div class="stat-icon">💰</div>
         <div class="stat-info">
-          <div class="stat-label">鏁翠綋娑堣€楋紙鍏冿級</div>
+          <div class="stat-label">整体消耗（元）</div>
           <div class="stat-value">571.10</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">馃搱</div>
+        <div class="stat-icon">📈</div>
         <div class="stat-info">
-          <div class="stat-label">鎴愪氦閲戦锛堝厓锛?/div>
+          <div class="stat-label">成交金额（元）</div>
           <div class="stat-value">1,073.00</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">馃幆</div>
+        <div class="stat-icon">🎯</div>
         <div class="stat-info">
-          <div class="stat-label">鏁翠綋鏀粯ROI</div>
+          <div class="stat-label">整体支付ROI</div>
           <div class="stat-value">1.88</div>
         </div>
       </div>
     </div>
 
-    <!-- 鍐呭 -->
+    <!-- 内容 -->
     <div class="content-grid">
-      <!-- TOP绱犳潗 -->
+      <!-- TOP素材 -->
       <div class="panel full">
         <div class="panel-header purple">
-          <div class="panel-title">馃幀 TOP绱犳潗琛ㄧ幇</div>
-          <span class="panel-tag purple">鎸夋秷鑰楁帓搴?/span>
+          <div class="panel-title">🎬 TOP素材表现</div>
+          <span class="panel-tag purple">按消耗排序</span>
         </div>
         <div class="panel-body">
           <div class="table-wrapper">
             <table class="data-table">
               <thead>
-                <tr><th>绱犳潗鍚嶇О</th><th>娑堣€楋紙鍏冿級</th><th>鎴愪氦閲戦锛堝厓锛?/th><th>ROI</th></tr>
+                <tr><th>素材名称</th><th>消耗（元）</th><th>成交金额（元）</th><th>ROI</th></tr>
               </thead>
               <tbody>
-                <tr><td class="material-name">0715-涔?鏃?鑺峰惈.mp4</td><td>185.54</td><td>396.00</td><td><span class="roi-tag roi-high">2.13</span></td></tr>
-                <tr><td class="material-name">0725-涔旀嫆缁濅竴鎶楾-鑺峰惈.mp4</td><td>93.03</td><td>310.00</td><td><span class="roi-tag roi-high">3.33</span></td></tr>
-                <tr><td class="material-name">涓€閿慨澶峗0722-姣涘瓟2鑺峰惈绉嶈崏-闃垮熀鏅?mp4</td><td>48.87</td><td>0.00</td><td><span class="roi-tag roi-zero">0.00</span></td></tr>
-                <tr><td class="material-name">0723-浜旇姳鑲?濂借繍-鑺峰惈.mp4</td><td>48.55</td><td>0.00</td><td><span class="roi-tag roi-zero">0.00</span></td></tr>
-                <tr><td class="material-name">0722-qhl鎶涢捇鈾?鑺峰惈.mp4</td><td>35.32</td><td>0.00</td><td><span class="roi-tag roi-zero">0.00</span></td></tr>
+                <tr><td class="material-name">0715-乔1无-芷含.mp4</td><td>185.54</td><td>396.00</td><td><span class="roi-tag roi-high">2.13</span></td></tr>
+                <tr><td class="material-name">0725-乔拒绝一折T-芷含.mp4</td><td>93.03</td><td>310.00</td><td><span class="roi-tag roi-high">3.33</span></td></tr>
+                <tr><td class="material-name">一键修复_0722-毛孔2芷含种草-阿基晴.mp4</td><td>48.87</td><td>0.00</td><td><span class="roi-tag roi-zero">0.00</span></td></tr>
+                <tr><td class="material-name">0723-五花肉2好运-芷含.mp4</td><td>48.55</td><td>0.00</td><td><span class="roi-tag roi-zero">0.00</span></td></tr>
+                <tr><td class="material-name">0722-qhl抛钻♥-芷含.mp4</td><td>35.32</td><td>0.00</td><td><span class="roi-tag roi-zero">0.00</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -468,93 +468,93 @@
         <div class="panel-deco purple"></div>
       </div>
 
-      <!-- 宸ヤ綔鍐呭鎬荤粨 -->
+      <!-- 工作内容总结 -->
       <div class="panel">
         <div class="panel-header orange">
-          <div class="panel-title">馃摑 鏄ㄦ棩宸ヤ綔鎽樿</div>
+          <div class="panel-title">📝 昨日工作摘要</div>
           <span class="panel-tag orange">07-25</span>
         </div>
         <div class="panel-body">
           <div style="margin-bottom: 14px;">
-            <div style="font-size: 12px; font-weight: 600; color: #2d8a56; margin-bottom: 8px;">鉁?宸插畬鎴?/div>
+            <div style="font-size: 12px; font-weight: 600; color: #2d8a56; margin-bottom: 8px;">✅ 已完成</div>
             <ul style="font-size: 13px; color: #555; line-height: 1.8; padding-left: 18px;">
-              <li>鍗忚皟Q2鍝佺墝钀ラ攢閮ㄥ洟寤虹墿鏂欙紙绛惧悕澧欒璁°€侀绠楁帶鍒讹級</li>
-              <li>璺熻繘绛惧悕澧欒璁¤繘搴︼紝鍌績鍟嗗鍔犳€ュ埗浣?/li>
-              <li>涓庨儜钀屾纭璇佷功鐩稿叧浜嬪疁</li>
+              <li>协调Q2品牌营销部团建物料（签名墙设计、预算控制）</li>
+              <li>跟进签名墙设计进度，催促商家加急制作</li>
+              <li>与郑萌榆确认证书相关事宜</li>
             </ul>
           </div>
           <div>
-            <div style="font-size: 12px; font-weight: 600; color: #f5a623; margin-bottom: 8px;">馃搶 寰呭姙/閲嶇偣</div>
+            <div style="font-size: 12px; font-weight: 600; color: #f5a623; margin-bottom: 8px;">📌 待办/重点</div>
             <ul style="font-size: 13px; color: #555; line-height: 1.8; padding-left: 18px;">
-              <li>纭绛惧悕澧欐渶缁堣璁℃柟妗堬紙钃濊壊鑳屾櫙璋冩祬/楂樻竻鐗堬級</li>
-              <li>璺熻繘鐗╂枡鍒朵綔杩涘害</li>
+              <li>确认签名墙最终设计方案（蓝色背景调浅/高清版）</li>
+              <li>跟进物料制作进度</li>
             </ul>
           </div>
         </div>
         <div class="panel-deco orange"></div>
       </div>
 
-      <!-- 浠婃棩鏃ョ▼ -->
+      <!-- 今日日程 -->
       <div class="panel">
         <div class="panel-header blue">
-          <div class="panel-title">馃搮 浠婃棩鏃ョ▼</div>
+          <div class="panel-title">📅 今日日程</div>
         </div>
         <div class="panel-body">
           <div class="schedule-list">
-            <div class="schedule-item"><span class="schedule-time">09:30-10:00</span><span class="schedule-name">钀ラ攢涓績B鏃╀細</span><span class="schedule-tag">瑙嗛浼氳</span></div>
-            <div class="schedule-item"><span class="schedule-time">09:30-10:00</span><span class="schedule-name">AI钀ラ攢涓績鏃╀細</span><span class="schedule-tag">瑙嗛浼氳</span></div>
-            <div class="schedule-item"><span class="schedule-time">10:00-10:30</span><span class="schedule-name">鐩爣鍚屾浼氳锛堢瓥鍒扐锛?/span><span class="schedule-tag">瀛熷瓙-602</span></div>
-            <div class="schedule-item"><span class="schedule-time">17:00-17:30</span><span class="schedule-name">AI澶曚細</span><span class="schedule-tag">瑙嗛浼氳</span></div>
-            <div class="schedule-item"><span class="schedule-time">18:30-21:00</span><span class="schedule-name">銆婂搧鐗岃惀閿€涓庝紶鎾€嬫巿璇?/span><span class="schedule-tag">馃搷1107</span></div>
+            <div class="schedule-item"><span class="schedule-time">09:30-10:00</span><span class="schedule-name">营销中心B早会</span><span class="schedule-tag">视频会议</span></div>
+            <div class="schedule-item"><span class="schedule-time">09:30-10:00</span><span class="schedule-name">AI营销中心早会</span><span class="schedule-tag">视频会议</span></div>
+            <div class="schedule-item"><span class="schedule-time">10:00-10:30</span><span class="schedule-name">目标同步会议（策划A）</span><span class="schedule-tag">孟子-602</span></div>
+            <div class="schedule-item"><span class="schedule-time">17:00-17:30</span><span class="schedule-name">AI夕会</span><span class="schedule-tag">视频会议</span></div>
+            <div class="schedule-item"><span class="schedule-time">18:30-21:00</span><span class="schedule-name">《品牌营销与传播》授课</span><span class="schedule-tag">📍1107</span></div>
           </div>
         </div>
         <div class="panel-deco blue"></div>
       </div>
 
-      <!-- 浠峰€煎彂鐜帮紙宸﹀彸鏍忥紝鍏ㄥ锛?-->
+      <!-- 价值发现（左右栏，全宽） -->
       <div class="panel full">
         <div class="panel-header green">
-          <div class="panel-title">馃挕 浠峰€煎彂鐜?/div>
+          <div class="panel-title">💡 价值发现</div>
         </div>
         <div class="panel-body">
           <div class="value-discover">
-            <!-- 宸︿晶锛氱珵瀵圭礌鏉?-->
+            <!-- 左侧：竞对素材 -->
             <div class="value-col">
               <div class="col-header orange">
-                馃敟 绔炲鏈夋晥绱犳潗
-                <a href="http://120.27.143.111:3002/favorites" target="_blank" style="font-size: 10px; color: #667eea; text-decoration: none;">鏀惰棌澶?鈫?/a>
+                🔥 竞对有效素材
+                <a href="http://120.27.143.111:3002/favorites" target="_blank" style="font-size: 10px; color: #667eea; text-decoration: none;">收藏夹 →</a>
               </div>
               <div class="competitor-list">
-                <div class="competitor-item"><span class="competitor-rank">1</span><span class="competitor-title">闊╂潫 路 楼265.52</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">2</span><span class="competitor-title">闊╂潫 路 楼156.07</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">3</span><span class="competitor-title">娆ц瘲婕?路 楼110.35</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">4</span><span class="competitor-title">璋烽洦 路 楼91.38</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">5</span><span class="competitor-title">璋烽洦 路 楼27.33</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">6</span><span class="competitor-title">鍗婁憨鑺辩敯 路 楼24.27</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">7</span><span class="competitor-title">闊╂潫 路 楼15.75</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">8</span><span class="competitor-title">闊╂潫 路 楼15.80</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">9</span><span class="competitor-title">鍗婁憨鑺辩敯 路 楼15.38</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
-                <div class="competitor-item"><span class="competitor-rank">10</span><span class="competitor-title">娓╁崥澹?路 楼12.75</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">鏀惰棌澶?/a></div>
+                <div class="competitor-item"><span class="competitor-rank">1</span><span class="competitor-title">韩束 · ¥265.52</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">2</span><span class="competitor-title">韩束 · ¥156.07</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">3</span><span class="competitor-title">欧诗漫 · ¥110.35</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">4</span><span class="competitor-title">谷雨 · ¥91.38</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">5</span><span class="competitor-title">谷雨 · ¥27.33</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">6</span><span class="competitor-title">半亩花田 · ¥24.27</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">7</span><span class="competitor-title">韩束 · ¥15.75</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">8</span><span class="competitor-title">韩束 · ¥15.80</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">9</span><span class="competitor-title">半亩花田 · ¥15.38</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
+                <div class="competitor-item"><span class="competitor-rank">10</span><span class="competitor-title">温博士 · ¥12.75</span><a href="http://120.27.143.111:3002/favorites" target="_blank" class="competitor-link">收藏夹</a></div>
               </div>
             </div>
-            <!-- 鍙充晶锛欰I宸ュ叿 -->
+            <!-- 右侧：AI工具 -->
             <div class="value-col">
-              <div class="col-header green">馃 AI宸ュ叿鍔ㄦ€?/div>
+              <div class="col-header green">🤖 AI工具动态</div>
               <div class="ai-list">
                 <div class="ai-item">
                   <div class="ai-header"><span class="ai-name">ChatGPT Agent</span><span class="ai-tag">7.17</span></div>
-                  <div class="ai-desc">OpenAI鍙戝竷鏅鸿兘浣擄紝鍙嫭绔嬪畬鎴愬鏉備换鍔?/div>
-                  <a href="https://fangx.ai/july-2025-ai-major-events-summary-and-review/" target="_blank" class="ai-link">鏉ユ簮 鈫?/a>
+                  <div class="ai-desc">OpenAI发布智能体，可独立完成复杂任务</div>
+                  <a href="https://fangx.ai/july-2025-ai-major-events-summary-and-review/" target="_blank" class="ai-link">来源 →</a>
                 </div>
                 <div class="ai-item">
                   <div class="ai-header"><span class="ai-name">Lovart</span><span class="ai-tag">7.28</span></div>
-                  <div class="ai-desc">鑵捐娣峰厓鏀寔鐨勯涓璁＄被AI Agent</div>
-                  <a href="https://fangx.ai/july-2025-ai-major-events-summary-and-review/" target="_blank" class="ai-link">鏉ユ簮 鈫?/a>
+                  <div class="ai-desc">腾讯混元支持的首个设计类AI Agent</div>
+                  <a href="https://fangx.ai/july-2025-ai-major-events-summary-and-review/" target="_blank" class="ai-link">来源 →</a>
                 </div>
                 <div class="ai-item">
-                  <div class="ai-header"><span class="ai-name">鍙伒 AI</span><span class="ai-tag">瑙嗛</span></div>
-                  <div class="ai-desc">蹇墜AI瑙嗛鐢熸垚锛屾敮鎸佹枃鐢?鍥剧敓瑙嗛</div>
-                  <a href="https://klingai.kuaishou.com/" target="_blank" class="ai-link">瀹樼綉 鈫?/a>
+                  <div class="ai-header"><span class="ai-name">可灵 AI</span><span class="ai-tag">视频</span></div>
+                  <div class="ai-desc">快手AI视频生成，支持文生/图生视频</div>
+                  <a href="https://klingai.kuaishou.com/" target="_blank" class="ai-link">官网 →</a>
                 </div>
               </div>
             </div>
@@ -564,10 +564,10 @@
       </div>
     </div>
 
-    <!-- 鍘嗗彶鐪嬫澘 -->
+    <!-- 历史看板 -->
     <div class="archive-section">
       <div style="font-size: 15px; font-weight: 600; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-        馃摎 鍘嗗彶鐪嬫澘
+        📚 历史看板
       </div>
       <div class="archive-grid" id="archiveGrid"></div>
     </div>
@@ -575,7 +575,7 @@
 
   <script>
     const archives = [
-      { date: '2026-07-26', weekday: '鍛ㄦ棩', materials: 112, uploaded: 0, cost: '571.10', roi: '1.88' }
+      { date: '2026-07-26', weekday: '周日', materials: 112, uploaded: 0, cost: '571.10', roi: '1.88' }
     ];
     archives.sort((a, b) => b.date.localeCompare(a.date));
     const grid = document.getElementById('archiveGrid');
@@ -583,7 +583,7 @@
       const card = document.createElement('a');
       card.href = `archive/${a.date}.html`;
       card.className = 'archive-card';
-      card.innerHTML = `<div class="date">${a.date}</div><div class="weekday">${a.weekday}</div><div class="stats">绱犳潗 <span>${a.materials}</span> 路 涓婁紶 <span>${a.uploaded}</span><br>娑堣€?<span>楼${a.cost}</span> 路 ROI <span>${a.roi}</span></div>`;
+      card.innerHTML = `<div class="date">${a.date}</div><div class="weekday">${a.weekday}</div><div class="stats">素材 <span>${a.materials}</span> · 上传 <span>${a.uploaded}</span><br>消耗 <span>¥${a.cost}</span> · ROI <span>${a.roi}</span></div>`;
       grid.appendChild(card);
     });
   </script>
